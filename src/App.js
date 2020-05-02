@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import { useTranslation } from 'react-i18next';
+import withRoot from './withRoot'
+import { useTheme } from '@material-ui/core/styles';
+import SnackBar from './components/snackBar'
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App()  {
+    const { t, i18n } = useTranslation();
+    const theme = useTheme();
+    document.body.dir = i18n.dir();
+
+    const changeLanguage = (lng) => { 
+      i18n.changeLanguage(lng)
+      document.body.dir = i18n.dir();
+      theme.direction = i18n.dir();
+    }
+
+    return (
+      <div className="App">
+        {t('welcome')}
+        <button onClick={() => changeLanguage('en')}>en</button>
+        <button onClick={() => changeLanguage('he')}>he</button>
+        <SnackBar />
+      </div>
+    );
 }
 
-export default App;
+export default withRoot(App);
