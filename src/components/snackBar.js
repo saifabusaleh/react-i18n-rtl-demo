@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 export default () => {
 
   const { t } = useTranslation();
-  const snackbarMessage = "test!" 
 
   return (
     <Snackbar
@@ -16,7 +15,6 @@ export default () => {
       }}
       open={true}
       message={t('welcome')}
-      aria-describedby="client-snackbar"
     >
     </Snackbar>
   );
