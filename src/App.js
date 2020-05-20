@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import withRoot from './withRoot'
 import { useTheme } from '@material-ui/core/styles';
 import SnackBar from './components/snackBar'
-
 import './App.css';
 
 function App()  {
