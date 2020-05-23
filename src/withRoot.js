@@ -1,6 +1,7 @@
 import React from 'react';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
+import i18n from "./i18n/i18n";
 
 import {
   MuiThemeProvider,
@@ -19,7 +20,7 @@ function withRoot(Component) {
       <StylesProvider jss={jss}>
 
         <MuiThemeProvider theme={createMuiTheme({
-          direction: props.i18n.dir()
+          direction: i18n.dir()
         })}>
           <Component {...props} />
         </MuiThemeProvider>
